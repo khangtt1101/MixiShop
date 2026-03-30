@@ -13,16 +13,17 @@
             <div class="bg-surface/80 backdrop-blur-md p-4 border border-outline-variant/30">
                 <p class="text-xs font-bold text-on-surface-variant mb-2 uppercase tracking-wider text-center">Select Size</p>
                 <div class="flex justify-between gap-2">
-                    <button class="flex-1 py-2 text-xs font-bold bg-surface-container hover:bg-primary hover:text-on-primary transition-colors border border-outline-variant/50">S</button>
-                    <button class="flex-1 py-2 text-xs font-bold bg-surface-container hover:bg-primary hover:text-on-primary transition-colors border border-outline-variant/50">M</button>
-                    <button class="flex-1 py-2 text-xs font-bold bg-surface-container hover:bg-primary hover:text-on-primary transition-colors border border-outline-variant/50">L</button>
-                    <button class="flex-1 py-2 text-xs font-bold bg-surface-container hover:bg-primary hover:text-on-primary transition-colors border border-outline-variant/50">XL</button>
+                    <a href="{{ route('products.show', $product->slug) }}" class="flex-1 text-center py-2 text-xs font-bold bg-surface-container hover:bg-primary hover:text-on-primary transition-colors border border-outline-variant/50 block">S</a>
+                    <a href="{{ route('products.show', $product->slug) }}" class="flex-1 text-center py-2 text-xs font-bold bg-surface-container hover:bg-primary hover:text-on-primary transition-colors border border-outline-variant/50 block">M</a>
+                    <a href="{{ route('products.show', $product->slug) }}" class="flex-1 text-center py-2 text-xs font-bold bg-surface-container hover:bg-primary hover:text-on-primary transition-colors border border-outline-variant/50 block">L</a>
+                    <a href="{{ route('products.show', $product->slug) }}" class="flex-1 text-center py-2 text-xs font-bold bg-surface-container hover:bg-primary hover:text-on-primary transition-colors border border-outline-variant/50 block">XL</a>
                 </div>
             </div>
         </div>
     </div>
     <div class="flex flex-col">
-        <h3 class="text-primary text-base font-medium font-body uppercase truncate">{{ $product->name }}</h3>
-        <p class="text-on-surface-variant text-sm font-medium mt-1">${{ number_format($product->price ?? 0, 2) }}</p>
-    </div>
+        <a href="{{ route('products.show', $product->slug) }}" class="hover:underline">
+            <h3 class="text-primary text-base font-medium font-body uppercase truncate">{{ $product->name }}</h3>
+        </a>
+        <p class="text-on-surface-variant text-sm font-medium mt-1">${{ number_format($product->price ?? 0, 2) }}</p>    </div>
 </div>

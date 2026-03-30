@@ -10,23 +10,34 @@ class ProductController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Product::with('images', 'category')->where('is_active', true);
+        $query = Product::with('images', 'category')
+            ->where('is_active', true)
+            ->whereHas('category', function($q) {
+                $q->where('is_active', true);
+            });
         
         if ($request->has('category')) {
             $query->whereHas('category', function($q) use ($request) {
-                $q->where('slug', $request->category);
+                $q->where('slug', $request->category)->where('is_active', true);
             });
         }
         
         $products = $query->paginate(12);
-        $categories = Category::all();
+        $categories = Category::where('is_active', true)->get();
         
         return view('products.index', compact('products', 'categories'));
     }
 
     public function show($slug)
     {
-        $product = Product::with(['images', 'variants', 'category'])->where('slug', $slug)->where('is_active', true)->firstOrFail();
+        $product = Product::with(['images', 'variants', 'category'])
+            ->where('slug', $slug)
+            ->where('is_active', true)
+            ->whereHas('category', function($q) {
+                $q->where('is_active', true);
+            })
+            ->firstOrFail();
+            
         return view('products.show', compact('product'));
     }
 }

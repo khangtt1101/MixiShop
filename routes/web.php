@@ -15,5 +15,26 @@ Route::post('/cart/update', [CartController::class, 'updateCart'])->name('cart.u
 Route::post('/cart/remove', [CartController::class, 'removeFromCart'])->name('cart.remove');
 
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ProductController as AdminProductController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ProductVariantController;
+use App\Http\Controllers\Admin\OrderController as AdminOrderController;
+
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
 Route::post('/checkout', [CheckoutController::class, 'process'])->name('checkout.process');
+
+// Admin Routes (No Auth Middleware for now per user request)
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+    
+    // Status Toggles
+    Route::post('categories/{category}/toggle-status', [CategoryController::class, 'toggleStatus'])->name('categories.toggle-status');
+    Route::post('products/{product}/toggle-status', [AdminProductController::class, 'toggleStatus'])->name('products.toggle-status');
+    
+    Route::resource('categories', CategoryController::class);
+    Route::resource('products', AdminProductController::class);
+    Route::resource('products.variants', ProductVariantController::class)->except(['index', 'show']);
+    Route::get('products/{product}/variants', [ProductVariantController::class, 'index'])->name('variants.index');
+    Route::resource('orders', AdminOrderController::class)->only(['index', 'show', 'update']);
+});
