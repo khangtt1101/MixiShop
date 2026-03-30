@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-container": "#e2e2e2",
+              "on-tertiary-fixed": "#ffffff",
+              "surface-container-low": "#1b1b1b",
+              "tertiary": "#e3e2e2",
+              "on-primary-fixed-variant": "#e2e2e2",
+              "inverse-surface": "#e2e2e2",
+              "surface-dim": "#131313",
+              "surface-tint": "#c6c6c7",
+              "on-surface-variant": "#c6c6c6",
+              "surface-container": "#1f1f1f",
+              "outline": "#919191",
+              "primary-fixed-dim": "#454747",
+              "tertiary-fixed-dim": "#464747",
+              "primary": "#ffffff",
+              "tertiary-fixed": "#5e5e5e",
+              "on-primary-container": "#000000",
+              "on-secondary-fixed": "#1a1c1c",
+              "surface-bright": "#393939",
+              "secondary-fixed-dim": "#ababab",
+              "on-tertiary-container": "#000000",
+              "secondary-fixed": "#c6c6c6",
+              "inverse-on-surface": "#303030",
+              "on-background": "#e2e2e2",
+              "surface-container-high": "#2a2a2a",
+              "on-surface": "#e2e2e2",
+              "error-container": "#93000a",
+              "on-error": "#690005",
+              "on-tertiary": "#1b1c1c",
+              "on-error-container": "#ffdad6",
+              "surface": "#131313",
+              "on-tertiary-fixed-variant": "#e3e2e2",
+              "secondary-container": "#454747",
+              "inverse-primary": "#5d5f5f",
+              "on-secondary": "#1a1c1c",
+              "background": "#131313",
+              "outline-variant": "#474747",
+              "surface-container-highest": "#353535",
+              "tertiary-container": "#919090",
+              "primary-fixed": "#5d5f5f",
+              "on-primary-fixed": "#ffffff",
+              "primary-container": "#d4d4d4",
+              "secondary": "#c6c6c6",
+              "on-primary": "#1a1c1c",
+              "surface-container-lowest": "#0e0e0e",
+              "error": "#ffb4ab",
+              "on-secondary-fixed-variant": "#3a3c3c",
+              "surface-variant": "#353535"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            font-size: 20px;
+        }
+        body {
+            background-color: #131313;
+            color: #e2e2e2;
+            font-family: 'Inter', sans-serif;
+        }
+        .brutalist-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 2rem;
+        }
+    </style>
+</head>
+<body class="bg-background min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 rounded-none bg-black/70 backdrop-blur-2xl flex justify-between items-center px-8 h-20 w-full max-w-none">
+<div class="text-2xl font-black tracking-tighter text-white font-['Space_Grotesk'] uppercase">
+            BRUTALIST GALLERY
+        </div>
+<div class="hidden md:flex items-center gap-12">
+<a class="text-white border-b border-white pb-1 font-['Space_Grotesk'] uppercase tracking-tighter font-bold" href="#">T-Shirts</a>
+<a class="text-zinc-500 hover:text-white transition-colors font-['Space_Grotesk'] uppercase tracking-tighter font-bold" href="#">Hoodies</a>
+<a class="text-zinc-500 hover:text-white transition-colors font-['Space_Grotesk'] uppercase tracking-tighter font-bold" href="#">Pants</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-white hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+</button>
+<button class="md:hidden text-white">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</div>
+</nav>
+<main class="flex-grow pt-32 pb-20 px-8 max-w-7xl mx-auto w-full">
+<!-- Header Section -->
+<header class="mb-20">
+<h1 class="font-headline text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-6">
+                CURATED OUTFITS <br/> <span class="text-outline">FOR YOU</span>
+</h1>
+<p class="font-body text-zinc-500 max-w-xl text-lg uppercase tracking-widest">
+                Our algorithm analyzes current street trends and editorial precision to select your next silhouette.
+            </p>
+</header>
+<!-- Filter Selection Area -->
+<section class="mb-24 space-y-12">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+<!-- Occasion Selection -->
+<div>
+<h3 class="font-headline text-xs font-bold uppercase tracking-[0.3em] text-zinc-500 mb-8">SELECT OCCASION</h3>
+<div class="flex flex-wrap gap-4">
+<button class="px-8 py-4 bg-primary text-on-primary font-headline font-bold uppercase tracking-tighter transition-transform active:scale-95">Street</button>
+<button class="px-8 py-4 border border-outline-variant/20 hover:border-primary/50 text-white font-headline font-bold uppercase tracking-tighter transition-all">Casual</button>
+<button class="px-8 py-4 border border-outline-variant/20 hover:border-primary/50 text-white font-headline font-bold uppercase tracking-tighter transition-all">Evening</button>
+</div>
+</div>
+<!-- Goal Selection -->
+<div>
+<h3 class="font-headline text-xs font-bold uppercase tracking-[0.3em] text-zinc-500 mb-8">CHOOSE YOUR VIBE</h3>
+<div class="flex flex-wrap gap-4">
+<button class="px-8 py-4 border border-outline-variant/20 hover:border-primary/50 text-white font-headline font-bold uppercase tracking-tighter transition-all">Minimalist</button>
+<button class="px-8 py-4 border border-outline-variant/20 hover:border-primary/50 text-white font-headline font-bold uppercase tracking-tighter transition-all">Bold</button>
+<button class="px-8 py-4 border border-outline-variant/20 hover:border-primary/50 text-white font-headline font-bold uppercase tracking-tighter transition-all">Layered</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Suggested Outfit Cards -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-20">
+<!-- Look 01 -->
+<div class="group">
+<div class="relative aspect-[3/4] bg-surface-container-low overflow-hidden mb-8">
+<img alt="Urban editorial streetwear" class="w-full h-full object-cover grayscale brightness-90 group-hover:scale-105 transition-transform duration-700" data-alt="high fashion editorial shot of a model wearing an oversized black hoodie and wide leg techwear pants in an industrial concrete setting with dramatic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlDNM_hKEIiMfHJeoYpGrtPXVtneNsQM14enkLPILK5L0_0Qzz1cCLBX1SLQlu_eYJymT7oAMrV9WmxB8e79qYeZ0JDOX8U2JaoPF47GAh-E3mrm-qnXmTwKr3R9lxUM-UhRoRdmLi56bP8obegNLFL0XETIlf1NpbjmvCAv2VEepQ8ASEEWNzyUTp81ANdgD5OiQMQD1jAFonoElQ_UmD2Nw66u-753eU5Xh9Eef8gJbtay_-lhlzMNREO2BXs5rWR4lSr_qcwgw"/>
+<div class="absolute top-6 left-6 bg-white text-black px-4 py-1 font-headline font-black text-sm tracking-tighter">
+                        LOOK 01 / STREET
+                    </div>
+</div>
+<div class="space-y-6">
+<div class="flex justify-between items-start">
+<div>
+<h2 class="font-headline text-3xl font-black uppercase tracking-tighter">THE MONOLITH SET</h2>
+<p class="font-body text-zinc-500 uppercase text-sm tracking-widest mt-1">High-density cotton blend</p>
+</div>
+<span class="font-headline text-2xl font-light">$420</span>
+</div>
+<ul class="space-y-2 py-6 border-y border-outline-variant/10">
+<li class="flex items-center gap-3 text-sm font-medium uppercase tracking-wider text-zinc-300">
+<span class="w-1.5 h-1.5 bg-primary"></span> Heavyweight Boxy Hoodie
+                        </li>
+<li class="flex items-center gap-3 text-sm font-medium uppercase tracking-wider text-zinc-300">
+<span class="w-1.5 h-1.5 bg-primary"></span> Raw Edge Cargo Pants
+                        </li>
+<li class="flex items-center gap-3 text-sm font-medium uppercase tracking-wider text-zinc-300">
+<span class="w-1.5 h-1.5 bg-primary"></span> Vulcanized High-Tops
+                        </li>
+</ul>
+<button class="w-full py-5 bg-white text-black font-headline font-black uppercase tracking-widest hover:bg-zinc-200 transition-colors flex items-center justify-center gap-2">
+                        SHOP THE LOOK
+                        <span class="material-symbols-outlined">arrow_right_alt</span>
+</button>
+</div>
+</div>
+<!-- Look 02 -->
+<div class="group lg:mt-24">
+<div class="relative aspect-[3/4] bg-surface-container-low overflow-hidden mb-8">
+<img alt="Minimalist streetwear" class="w-full h-full object-cover grayscale brightness-90 group-hover:scale-105 transition-transform duration-700" data-alt="minimalist architectural fashion shot of a model in a beige structured blazer and matching tailored trousers against a brutalist gray wall" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIPdav27-5XBDoi-ZTOATXZqjHTQk848-iTgQ0VFSYvnvFbS5pbTRfA4XbCFXh9tyLABq0bm44C70Kr_qSfOBHHkIGexPRwG4LPQXFYGgg020_RyGRV3oHulS0hbUu2uYGqzxxUCK8DG2wOycqV9zS6i8aGGmcA8e2nLKrN-X-cd0ldU5C3Xubledm5nVTYYZ7LFa0jjipbBZPbTDVqvNBH_2dJiIDyic2l0hFfb1c_BJcQjTbooHvhBdbrWWtYeeEuTYpbqL3P7o"/>
+<div class="absolute top-6 left-6 bg-white text-black px-4 py-1 font-headline font-black text-sm tracking-tighter">
+                        LOOK 02 / MINIMALIST
+                    </div>
+</div>
+<div class="space-y-6">
+<div class="flex justify-between items-start">
+<div>
+<h2 class="font-headline text-3xl font-black uppercase tracking-tighter">NEUTRAL ARCHIVE</h2>
+<p class="font-body text-zinc-500 uppercase text-sm tracking-widest mt-1">Structured wool &amp; linen</p>
+</div>
+<span class="font-headline text-2xl font-light">$585</span>
+</div>
+<ul class="space-y-2 py-6 border-y border-outline-variant/10">
+<li class="flex items-center gap-3 text-sm font-medium uppercase tracking-wider text-zinc-300">
+<span class="w-1.5 h-1.5 bg-primary"></span> Deconstructed Blazer
+                        </li>
+<li class="flex items-center gap-3 text-sm font-medium uppercase tracking-wider text-zinc-300">
+<span class="w-1.5 h-1.5 bg-primary"></span> Wide Leg Tailored Pants
+                        </li>
+<li class="flex items-center gap-3 text-sm font-medium uppercase tracking-wider text-zinc-300">
+<span class="w-1.5 h-1.5 bg-primary"></span> Leather Slide Mules
+                        </li>
+</ul>
+<button class="w-full py-5 bg-white text-black font-headline font-black uppercase tracking-widest hover:bg-zinc-200 transition-colors flex items-center justify-center gap-2">
+                        SHOP THE LOOK
+                        <span class="material-symbols-outlined">arrow_right_alt</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Secondary Section: Accessories -->
+<section class="mt-40">
+<h3 class="font-headline text-4xl font-black uppercase tracking-tighter mb-12">COMPLETE THE SILHOUETTE</h3>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-1">
+<div class="aspect-square bg-surface-container overflow-hidden group">
+<img class="w-full h-full object-cover grayscale opacity-60 group-hover:opacity-100 transition-opacity" data-alt="close up of a modern minimalist steel watch with a black leather strap on a dark reflective surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfkdogyu9lCoarBRyjSAVzFlm5rVBUZT04-g5JCeEdRDCT2Fz9fXo0xMdwOGD-BKOwnqpBNEKkQyP0FD5tuqGQKhNXQxLkAff-vg3IvnHX5ZslI85Imj99k5bj6ctTIP_JAag13YHwDe2i2O7TLX-6_xDEu8hTYGpbZcnqbLgDTok-I_0Pen2YNVs_iubiyt3i9WzkZ98OqXpLM7RvrxbhwgWs1cA0x_xDnvF3n-Czut6t1HDjFSjfCIS1wWHaTtEZZoq3Klt42KQ"/>
+</div>
+<div class="aspect-square bg-surface-container overflow-hidden group">
+<img class="w-full h-full object-cover grayscale opacity-60 group-hover:opacity-100 transition-opacity" data-alt="studio shot of designer black sunglasses with thick frames and dark lenses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARkOuMNSCAg18zixhzmw7-eehGuZHCAXefjgz0Iuw7VYk3DHsslHIJXhEbM5MBzwIUVy_cZ6ISuNrmSSjTk8xxub8kkQs-guxS5O3NfivKluW3_5nYDCvP92kz7tp2uoqoi9GYbueXhvhVDDhsTkGrAtLaIvuhftJkFfemaNSmJ1yc_Ujjm3plP8OA2czAzzwDv55Zl5ttYLm9gEJvaBrlF10qAafoMoGjpvgi7OMJIHp1moyx7WLNICv820qyy1JVNwAtDxDb6VA"/>
+</div>
+<div class="aspect-square bg-surface-container overflow-hidden group">
+<img class="w-full h-full object-cover grayscale opacity-60 group-hover:opacity-100 transition-opacity" data-alt="high fashion leather messenger bag in black with silver hardware and geometric stitching" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9N548DVwV5-nWd4xsVpeO5gONNlx2yHqcaAJGEEg4aNCKjYFjWwLPJpq4jNJigI25WeFFO_z7bZQqGPMRFTUvGV8TKi5qBOKf8KAHoMhcev3rTBHDqAEQgHy9ejJzZMWkzgug_X5-3_zlpWpAOUhBUmqmuEnkst9LkO0cIFnSyglmAzwUmvluL_fskFd9ylV67a11tw6ZveN93yEaGbUa6fwjJ7XrGkxPCDUnGlkFv4GTv5BbuKxmlnaAiwlgUSSx8ewON-dzcyg"/>
+</div>
+<div class="aspect-square bg-surface-container overflow-hidden group">
+<img class="w-full h-full object-cover grayscale opacity-60 group-hover:opacity-100 transition-opacity" data-alt="luxury silver ring with minimalist engraved details on a piece of dark volcanic rock" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC21IUkuQJuPgtRAafp4qe5qx0T03B4gRpUFYDeYjwiSUzNMtxOkpgt6Cziu3kFoDdSyaHoPY7SPW-DlhQ1u8lPB8MCrAF36iJOorYlh6anmx8g6L-hnQtQ_cmRJSZkX5OjzdzgKcDeftzh_dYRP2CloDhAGIsATHxUvQSZlsNirq-o9h37ohFnOZpZkKrJUeLYPLgpeF8DBWfyj1pY_J9ft5vdb_FgIKygwSl7sGZv2vW0Wgag25mPejlw5bXBoqTdsgsGcK5OLjQ"/>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full rounded-none bg-[#131313] text-white flex flex-col md:flex-row justify-between items-start px-8 py-16 mt-auto border-t border-zinc-800">
+<div class="mb-12 md:mb-0">
+<div class="text-lg font-black text-white font-headline uppercase tracking-tighter mb-4">BRUTALIST GALLERY</div>
+<p class="font-['Inter'] text-sm tracking-widest uppercase text-zinc-500">© 2024 BRUTALIST GALLERY. ALL RIGHTS RESERVED.</p>
+</div>
+<div class="flex flex-col md:flex-row gap-12">
+<div class="flex flex-col gap-4">
+<a class="font-['Inter'] text-sm tracking-widest uppercase text-zinc-500 hover:text-white hover:underline underline-offset-4 transition-all" href="#">Instagram</a>
+<a class="font-['Inter'] text-sm tracking-widest uppercase text-zinc-500 hover:text-white hover:underline underline-offset-4 transition-all" href="#">Twitter</a>
+</div>
+<div class="flex flex-col gap-4">
+<a class="font-['Inter'] text-sm tracking-widest uppercase text-zinc-500 hover:text-white hover:underline underline-offset-4 transition-all" href="#">Newsletter</a>
+<a class="font-['Inter'] text-sm tracking-widest uppercase text-zinc-500 hover:text-white hover:underline underline-offset-4 transition-all" href="#">Terms</a>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Streetwear E-Commerce</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700;900&amp;family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "surface-dim": "#131313",
+                "inverse-primary": "#5d5f5f",
+                "surface-container-lowest": "#0e0e0e",
+                "secondary-fixed-dim": "#ababab",
+                "primary-container": "#d4d4d4",
+                "on-tertiary": "#1b1c1c",
+                "outline": "#919191",
+                "on-primary-fixed": "#ffffff",
+                "surface-bright": "#393939",
+                "surface-container-highest": "#353535",
+                "on-error": "#690005",
+                "on-surface": "#e2e2e2",
+                "secondary-fixed": "#c6c6c6",
+                "surface-container-high": "#2a2a2a",
+                "on-primary-fixed-variant": "#e2e2e2",
+                "inverse-on-surface": "#303030",
+                "primary-fixed": "#5d5f5f",
+                "background": "#131313",
+                "secondary": "#c6c6c6",
+                "on-tertiary-container": "#000000",
+                "tertiary-container": "#919090",
+                "on-secondary-fixed-variant": "#3a3c3c",
+                "primary": "#ffffff",
+                "on-secondary-container": "#e2e2e2",
+                "primary-fixed-dim": "#454747",
+                "tertiary": "#e3e2e2",
+                "tertiary-fixed-dim": "#464747",
+                "surface-container": "#1f1f1f",
+                "outline-variant": "#474747",
+                "on-secondary-fixed": "#1a1c1c",
+                "tertiary-fixed": "#5e5e5e",
+                "surface-container-low": "#1b1b1b",
+                "on-primary-container": "#000000",
+                "surface-tint": "#c6c6c7",
+                "surface": "#131313",
+                "error-container": "#93000a",
+                "on-surface-variant": "#c6c6c6",
+                "on-tertiary-fixed-variant": "#e3e2e2",
+                "on-background": "#e2e2e2",
+                "surface-variant": "#353535",
+                "secondary-container": "#454747",
+                "on-secondary": "#1a1c1c",
+                "on-primary": "#1a1c1c",
+                "on-tertiary-fixed": "#ffffff",
+                "error": "#ffb4ab",
+                "inverse-surface": "#e2e2e2",
+                "on-error-container": "#ffdad6"
+              },
+              fontFamily: {
+                "headline": ["Space Grotesk", "sans-serif"],
+                "body": ["Inter", "sans-serif"],
+                "label": ["Inter", "sans-serif"]
+              },
+              borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: theme('colors.background'); color: theme('colors.on-surface'); }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Space Grotesk', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<div class="relative flex h-auto w-full flex-col bg-surface-dim group/design-root overflow-x-hidden border-b border-surface-container-high z-50">
+<header class="flex items-center justify-between whitespace-nowrap px-8 py-5 mx-auto max-w-[1440px] w-full">
+<div class="flex items-center gap-12">
+<a class="flex items-center gap-4 text-primary" href="#">
+<div class="size-6 text-primary" data-icon="deployed_code">
+<span class="material-symbols-outlined font-light text-[24px]">deployed_code</span>
+</div>
+<h2 class="text-primary text-2xl font-black leading-tight tracking-tighter uppercase font-headline">BRUTALIST</h2>
+</a>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface hover:text-primary transition-colors text-sm font-medium tracking-wide uppercase font-body" href="#">New Drop</a>
+<a class="text-on-surface hover:text-primary transition-colors text-sm font-medium tracking-wide uppercase font-body" href="#">Collections</a>
+<a class="text-on-surface hover:text-primary transition-colors text-sm font-medium tracking-wide uppercase font-body" href="#">Archive</a>
+<a class="text-error hover:text-error-container transition-colors text-sm font-medium tracking-wide uppercase font-body" href="#">Sale</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex w-64 h-10 bg-surface-container rounded-none relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">search</span>
+</div>
+<input class="block w-full h-full pl-10 pr-3 bg-transparent border-none text-on-surface focus:ring-1 focus:ring-outline-variant placeholder:text-on-surface-variant text-sm font-body" placeholder="Search archive..." type="text"/>
+</div>
+<button class="flex items-center justify-center w-10 h-10 bg-surface-container-low text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[20px]">person</span>
+</button>
+<button class="flex items-center justify-center w-10 h-10 bg-surface-container-low text-on-surface hover:bg-surface-container-high transition-colors relative">
+<span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+<span class="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center bg-primary text-on-primary text-[10px] font-bold">2</span>
+</button>
+</div>
+</header>
+</div>
+<!-- Drop Alert Banner -->
+<div class="w-full bg-surface-bright text-on-primary-fixed py-2 px-4 text-center">
+<p class="text-sm font-headline tracking-widest uppercase">
+<span class="font-bold">SEASON 4 DROP:</span> Access opens in 24:00:00. <a class="underline decoration-1 underline-offset-4 ml-2" href="#">Register for early access.</a>
+</p>
+</div>
+<main class="flex-grow max-w-[1440px] mx-auto w-full px-4 sm:px-8 py-12 flex flex-col gap-24">
+<!-- Hero Section -->
+<section class="relative w-full h-[716px] min-h-[600px] bg-surface-container-lowest overflow-hidden flex items-center justify-center">
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-center bg-cover opacity-60" data-alt="Editorial shot of a model wearing dark, avant-garde streetwear in an industrial concrete setting, harsh directional lighting, desaturated tones" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAQIbxzqeyT1_tJt_c1ZPfCOVG8rqp1qwxNCyE4cLjJhuFxr31CDeOMNR3M1FiuFsKiLvpbjxJ29QJcCnU1V04vnnrJTM0DtCU_96Dq1mlxsZFGFd74fwGJREb2N469kGnCJqEuMKLQy0COkk0bs9Yg16_PtOnIE_eeGsYtdQA2OSNIaKCSozWteC7ZWsy4iDBa_dlkD8iAODk6nOeD_HdsXn1niVvlMXowumHexnssTtjeedFSe9SNBVVZd6UsvlUH4L-UMyRBmME");'>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+</div>
+<div class="relative z-10 flex flex-col items-center text-center max-w-4xl px-4 mt-auto pb-24">
+<h1 class="text-primary text-[5rem] sm:text-[7rem] font-black leading-[0.85] tracking-tighter uppercase font-headline mb-6 drop-shadow-2xl">
+                    SYSTEM<br/>OVERRIDE
+                </h1>
+<p class="text-on-surface text-lg sm:text-xl font-body max-w-2xl mb-10 opacity-90">
+                    The new collection redefines urban utility. Structural silhouettes forged in raw textiles.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="bg-primary text-on-primary px-10 py-4 text-sm font-bold tracking-widest uppercase hover:opacity-90 transition-opacity">
+                        Explore Collection
+                    </button>
+<button class="bg-transparent border border-outline-variant text-primary px-10 py-4 text-sm font-bold tracking-widest uppercase hover:bg-surface-container-low transition-colors">
+                        View Lookbook
+                    </button>
+</div>
+</div>
+</section>
+<!-- Featured Products -->
+<section class="flex flex-col gap-12">
+<div class="flex items-end justify-between border-b border-surface-container-high pb-4">
+<h2 class="text-primary text-3xl font-bold tracking-tight uppercase font-headline">Latest Arrivals</h2>
+<a class="text-on-surface-variant hover:text-primary text-sm font-bold tracking-widest uppercase transition-colors flex items-center gap-2" href="#">
+                    View All <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Product 1 -->
+<div class="group flex flex-col gap-4">
+<div class="relative w-full aspect-[3/4] bg-surface-container-lowest overflow-hidden">
+<div class="w-full h-full bg-center bg-cover transition-transform duration-700 group-hover:scale-105" data-alt="Black oversized graphic t-shirt with abstract white brutalist print on dark background, flat lay studio shot" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCkikW7IGg6I5YQU5dNHvsEoKIs9Ce3T8UbG3XVVsAba0YaE9q2QxY11wWstWexG0xevV7J9MXnWFrOXn_FvKPF6aVsYdDehCTnxEzuhMe1v4MjeNz2IE48L6zmESRiTPU1EU0XHvb04EL40T95AuYPBvayRuPB8DtwvG4UVoItiv2JIDKH-p-RuzsTwjWeVAP-I20wgUiEU1dRyR4lOzIO6uToIkpTHPYPYYY7ThSEYtDB5A6yvbhxGAmj_k2O4YozFRcj493kdXk");'>
+</div>
+<div class="absolute top-4 left-4 bg-surface-bright px-2 py-1 text-[10px] font-bold tracking-widest uppercase text-primary">New</div>
+<!-- Quick Add Overlay (Glassmorphism) -->
+<div class="absolute inset-x-0 bottom-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+<div class="bg-surface/80 backdrop-blur-md p-4 border border-outline-variant/30">
+<p class="text-xs font-bold text-on-surface-variant mb-2 uppercase tracking-wider text-center">Select Size</p>
+<div class="flex justify-between gap-2">
+<button class="flex-1 py-2 text-xs font-bold bg-surface-container hover:bg-primary hover:text-on-primary transition-colors border border-outline-variant/50">S</button>
+<button class="flex-1 py-2 text-xs font-bold bg-surface-container hover:bg-primary hover:text-on-primary transition-colors border border-outline-variant/50">M</button>
+<button class="flex-1 py-2 text-xs font-bold bg-surface-container hover:bg-primary hover:text-on-primary transition-colors border border-outline-variant/50">L</button>
+<button class="flex-1 py-2 text-xs font-bold bg-surface-container hover:bg-primary hover:text-on-primary transition-colors border border-outline-variant/50 text-outline-variant cursor-not-allowed">XL</button>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col">
+<h3 class="text-primary text-base font-medium font-body uppercase truncate">Strata Oversized Tee</h3>
+<p class="text-on-surface-variant text-sm font-medium mt-1">$65.00</p>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="group flex flex-col gap-4">
+<div class="relative w-full aspect-[3/4] bg-surface-container-lowest overflow-hidden">
+<div class="w-full h-full bg-center bg-cover transition-transform duration-700 group-hover:scale-105" data-alt="Heavyweight grey pullover hoodie with subtle technical panelling, studio shot against dark background" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCEgT8ivPENvo3O67kQbze-AMRdg9l_4yle0AXvycvNSK78Q9fLvV8T8dfyZMTzhLTcBnR6iqRcvHPpHr8tB6X8H0l4IVlfFQpO4MsP93fZwtHXZ68bWpiImIe5p8rpRArVWoENn4tWlkVJgATYjPSZya0TSV9jxz4M4DSTRcoR0MOCnxiU7m9dms_bn_VT6FMSSYf73Sqd-4y1tsth1X1FT_EB31G2cMEjahA9_1YJJSA6vsv1N_jhBOfzBr64Unr-lsJwdMHGhA4");'>
+</div>
+<div class="absolute inset-x-0 bottom-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+<div class="bg-surface/80 backdrop-blur-md p-4 border border-outline-variant/30">
+<p class="text-xs font-bold text-on-surface-variant mb-2 uppercase tracking-wider text-center">Select Size</p>
+<div class="flex justify-between gap-2">
+<button class="flex-1 py-2 text-xs font-bold bg-surface-container hover:bg-primary hover:text-on-primary transition-colors border border-outline-variant/50">S</button>
+<button class="flex-1 py-2 text-xs font-bold bg-surface-container hover:bg-primary hover:text-on-primary transition-colors border border-outline-variant/50">M</button>
+<button class="flex-1 py-2 text-xs font-bold bg-surface-container hover:bg-primary hover:text-on-primary transition-colors border border-outline-variant/50">L</button>
+<button class="flex-1 py-2 text-xs font-bold bg-surface-container hover:bg-primary hover:text-on-primary transition-colors border border-outline-variant/50">XL</button>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col">
+<h3 class="text-primary text-base font-medium font-body uppercase truncate">Core Heavy Hoodie</h3>
+<p class="text-on-surface-variant text-sm font-medium mt-1">$120.00</p>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="group flex flex-col gap-4">
+<div class="relative w-full aspect-[3/4] bg-surface-container-lowest overflow-hidden">
+<div class="w-full h-full bg-center bg-cover transition-transform duration-700 group-hover:scale-105" data-alt="Technical black cargo pants with multiple utilitarian pockets and straps, detailed shot on dark background" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC0n9Ecy_QAZBmUCG7xrOzR2MWW7iKQrrypOoxXUZxO2MCmAyAbqfFqtBkgAWEbyTYWt0vFKkdokossUSnii16IrgOzlkvLSmhu2tzqDgXEK7i1goaoBMyDEDMhAlEgGjue-6_MdTFbW3pGp0PK-AGAshdjRMPD1e8DFcWaK9j3gFYNFp45VsBnC00ddLyLH6tTRBmZY0h-pZYdbg1TFcurw5OhAJ60PCLNt5h2g7dqRPBHMvOi02Cl3c6ACybqlWMeoa60zwqOBB4");'>
+</div>
+<div class="absolute inset-x-0 bottom-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+<div class="bg-surface/80 backdrop-blur-md p-4 border border-outline-variant/30">
+<p class="text-xs font-bold text-on-surface-variant mb-2 uppercase tracking-wider text-center">Select Size</p>
+<div class="flex justify-between gap-2">
+<button class="flex-1 py-2 text-xs font-bold bg-surface-container hover:bg-primary hover:text-on-primary transition-colors border border-outline-variant/50">S</button>
+<button class="flex-1 py-2 text-xs font-bold bg-surface-container hover:bg-primary hover:text-on-primary transition-colors border border-outline-variant/50">M</button>
+<button class="flex-1 py-2 text-xs font-bold bg-surface-container hover:bg-primary hover:text-on-primary transition-colors border border-outline-variant/50">L</button>
+<button class="flex-1 py-2 text-xs font-bold bg-surface-container hover:bg-primary hover:text-on-primary transition-colors border border-outline-variant/50">XL</button>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col">
+<h3 class="text-primary text-base font-medium font-body uppercase truncate">Modular Cargo Pant</h3>
+<p class="text-on-surface-variant text-sm font-medium mt-1">$145.00</p>
+</div>
+</div>
+<!-- Product 4 -->
+<div class="group flex flex-col gap-4">
+<div class="relative w-full aspect-[3/4] bg-surface-container-lowest overflow-hidden">
+<div class="w-full h-full bg-center bg-cover transition-transform duration-700 group-hover:scale-105" data-alt="Chunky black and grey tactical sneaker with exaggerated sole, dramatic lighting against dark grey background" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDeUJCgzyRJxYQna-RD0bp3F-BpObCBKJRZWm3TdWE4m_Le-ePpWf1k4zmqRgST1nXFVqT5mnIWLIkxLgkFs2brVETdYCDNa8hDw_3OO4s-7gLx8QrtSTIiOarX7vm4GTWVHa5ySO5HgW3v0LBYagAia14e4bqdLfbI2zvMHk_DSnLlGdBp0SZf0yqouOW5Qwu5R5dNybOPER9W_n-qklcYEEjtBilq-125w7VD2qXEroa1HKFyhVzBSfKtHGF5hXV9OJs5zIQpvks");'>
+</div>
+<div class="absolute inset-x-0 bottom-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+<div class="bg-surface/80 backdrop-blur-md p-4 border border-outline-variant/30">
+<p class="text-xs font-bold text-on-surface-variant mb-2 uppercase tracking-wider text-center">Select Size</p>
+<div class="flex justify-between gap-2">
+<button class="flex-1 py-2 text-xs font-bold bg-surface-container hover:bg-primary hover:text-on-primary transition-colors border border-outline-variant/50">8</button>
+<button class="flex-1 py-2 text-xs font-bold bg-surface-container hover:bg-primary hover:text-on-primary transition-colors border border-outline-variant/50">9</button>
+<button class="flex-1 py-2 text-xs font-bold bg-surface-container hover:bg-primary hover:text-on-primary transition-colors border border-outline-variant/50">10</button>
+<button class="flex-1 py-2 text-xs font-bold bg-surface-container hover:bg-primary hover:text-on-primary transition-colors border border-outline-variant/50">11</button>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col">
+<h3 class="text-primary text-base font-medium font-body uppercase truncate">Tread Low Sneaker</h3>
+<p class="text-on-surface-variant text-sm font-medium mt-1">$190.00</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Category Grid (Asymmetric) -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[600px]">
+<!-- Main Category -->
+<a class="md:col-span-7 relative group overflow-hidden bg-surface-container-lowest h-[400px] md:h-full flex items-center justify-center" href="#">
+<div class="absolute inset-0 bg-center bg-cover opacity-70 group-hover:opacity-100 transition-opacity duration-700 group-hover:scale-105" data-alt="Model wearing layered outerwear jackets in an urban setting, brutalist architecture background, desaturated tones" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA24rR-Jcr5aCiTehvwSSFbxH4RUr0Ii5ACqVeAetqT3tMDDcqUexJXD9GKXypHcg14FsLsO1rEZW1irrKmob5PartIa3jHyewzTZqV2YwatUTlrSOcEurscBK_qwQGYt3rfCM8oa9bmf0pNxFxq6ivAGb1_-jEiLEuDcFdgar1tNIgAJCW8Xui--RFC7i67R57r_QZo2f08NKXidcJnHlgO58ffJmNBn6aWVJ1LNsnjoG1XYktzTDhUn77OQUqjoSUnwpHru28XC4");'>
+</div>
+<div class="absolute inset-0 bg-black/30"></div>
+<h3 class="relative z-10 text-primary text-5xl font-black uppercase font-headline tracking-tighter mix-blend-difference">Outerwear</h3>
+</a>
+<div class="md:col-span-5 flex flex-col gap-6">
+<!-- Sub Category 1 -->
+<a class="relative flex-1 group overflow-hidden bg-surface-container-lowest flex items-center justify-center min-h-[250px]" href="#">
+<div class="absolute inset-0 bg-center bg-cover opacity-70 group-hover:opacity-100 transition-opacity duration-700 group-hover:scale-105" data-alt="Close up of a premium blank t-shirt folded neatly on dark concrete surface, showcasing texture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBh3xNcF1AOmyu4GChO_Amta84_BzH6siuaFf2fnmm5NmeMKH1Lwzsd1ZP4DC0mN34itOyi2PNZ_5HbVXouqgImG_JC7PEN9TIiIpyF2-rWdV8lmFJYH4M5BZXGIQVWmTbhcpZO5m7-1SGAOw2wFUa0bHH95zNCqo4uvrQ2JklnK7PLxwOMvZSjWHmvLBTV6ZScDgNsXE-7AQt67Xqnam3cdNin0vTBwtD0b_G1BfR7IsEEDL4A5BKq7BMiTOo5ST1KNfuJjxuXSjo");'>
+</div>
+<div class="absolute inset-0 bg-black/30"></div>
+<h3 class="relative z-10 text-primary text-3xl font-black uppercase font-headline tracking-tighter">Essentials</h3>
+</a>
+<!-- Sub Category 2 -->
+<a class="relative flex-1 group overflow-hidden bg-surface-container-lowest flex items-center justify-center min-h-[250px]" href="#">
+<div class="absolute inset-0 bg-center bg-cover opacity-70 group-hover:opacity-100 transition-opacity duration-700 group-hover:scale-105" data-alt="Collection of minimalist silver chains and rings on a dark slate background, high contrast lighting" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDZ7ZvG__DPFinLKbGE3mVd1K5wAaMGxtsDRViw4wn_eP9yVEcUaYXQgDQt9udfYkqGYYccG7pQJhzKBtWXfoLQBriNT4_MjY3kcAoU-z_T1IRzwBBUFV3t8NNHAgC9n2piTbwW26Z-EA87E9XyfAxtcDo24sYNJLYteXy7WgSeYrgtrtfdiwJU1ZCmZP9sASZUUNFWxZFLHdvYp_2t-Sl3PoD-Odn7bWdjSsGfTSDlNdFf_ZTr32kjsZnlrxs-RrureaNkul_pHEI");'>
+</div>
+<div class="absolute inset-0 bg-black/30"></div>
+<h3 class="relative z-10 text-primary text-3xl font-black uppercase font-headline tracking-tighter">Hardware</h3>
+</a>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="mt-24 bg-surface-container-lowest border-t border-surface-container-high py-16 px-8">
+<div class="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="col-span-1 md:col-span-2">
+<h2 class="text-primary text-2xl font-black uppercase font-headline mb-6">Join the Syndicate</h2>
+<p class="text-on-surface-variant text-sm mb-6 max-w-sm">Subscribe to receive early access to drops, exclusive content, and architectural insights.</p>
+<div class="flex max-w-md">
+<input class="flex-1 bg-surface-container border border-outline-variant p-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary rounded-none" placeholder="Email Address" type="email"/>
+<button class="bg-primary text-on-primary px-6 font-bold uppercase text-sm tracking-wider">Submit</button>
+</div>
+</div>
+<div>
+<h3 class="text-primary font-bold uppercase tracking-wider mb-6 text-sm">Information</h3>
+<ul class="flex flex-col gap-4 text-sm text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">About Us</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Stockists</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Archive</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Contact</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-primary font-bold uppercase tracking-wider mb-6 text-sm">Support</h3>
+<ul class="flex flex-col gap-4 text-sm text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">Shipping &amp; Returns</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Size Guide</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">FAQ</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-[1440px] mx-auto mt-16 pt-8 border-t border-surface-container-high flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-on-surface-variant uppercase tracking-widest">
+<p>© 2024 BRUTALIST STUDIOS. ALL RIGHTS RESERVED.</p>
+<div class="flex gap-6">
+<a class="hover:text-primary transition-colors" href="#">Instagram</a>
+<a class="hover:text-primary transition-colors" href="#">Twitter</a>
+</div>
+</div>
+</footer>
+</body></html>

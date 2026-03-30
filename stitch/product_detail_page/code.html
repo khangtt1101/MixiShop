@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-container": "#e2e2e2",
+              "on-tertiary-fixed": "#ffffff",
+              "surface-container-low": "#1b1b1b",
+              "tertiary": "#e3e2e2",
+              "on-primary-fixed-variant": "#e2e2e2",
+              "inverse-surface": "#e2e2e2",
+              "surface-dim": "#131313",
+              "surface-tint": "#c6c6c7",
+              "on-surface-variant": "#c6c6c6",
+              "surface-container": "#1f1f1f",
+              "outline": "#919191",
+              "primary-fixed-dim": "#454747",
+              "tertiary-fixed-dim": "#464747",
+              "primary": "#ffffff",
+              "tertiary-fixed": "#5e5e5e",
+              "on-primary-container": "#000000",
+              "on-secondary-fixed": "#1a1c1c",
+              "surface-bright": "#393939",
+              "secondary-fixed-dim": "#ababab",
+              "on-tertiary-container": "#000000",
+              "secondary-fixed": "#c6c6c6",
+              "inverse-on-surface": "#303030",
+              "on-background": "#e2e2e2",
+              "surface-container-high": "#2a2a2a",
+              "on-surface": "#e2e2e2",
+              "error-container": "#93000a",
+              "on-error": "#690005",
+              "on-tertiary": "#1b1c1c",
+              "on-error-container": "#ffdad6",
+              "surface": "#131313",
+              "on-tertiary-fixed-variant": "#e3e2e2",
+              "secondary-container": "#454747",
+              "inverse-primary": "#5d5f5f",
+              "on-secondary": "#1a1c1c",
+              "background": "#131313",
+              "outline-variant": "#474747",
+              "surface-container-highest": "#353535",
+              "tertiary-container": "#919090",
+              "primary-fixed": "#5d5f5f",
+              "on-primary-fixed": "#ffffff",
+              "primary-container": "#d4d4d4",
+              "secondary": "#c6c6c6",
+              "on-primary": "#1a1c1c",
+              "surface-container-lowest": "#0e0e0e",
+              "error": "#ffb4ab",
+              "on-secondary-fixed-variant": "#3a3c3c",
+              "surface-variant": "#353535"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #131313;
+            color: #e2e2e2;
+            font-family: 'Inter', sans-serif;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<!-- TopNavBar Navigation Shell -->
+<nav class="fixed top-0 w-full z-50 rounded-none bg-black/70 backdrop-blur-2xl flex justify-between items-center px-8 h-20 w-full max-w-none">
+<div class="text-2xl font-black tracking-tighter text-white font-['Space_Grotesk'] uppercase">
+            BRUTALIST GALLERY
+        </div>
+<div class="hidden md:flex gap-10">
+<a class="text-zinc-500 hover:text-white transition-colors font-['Space_Grotesk'] uppercase tracking-tighter font-bold" href="#">T-Shirts</a>
+<a class="text-white border-b border-white pb-1 font-['Space_Grotesk'] uppercase tracking-tighter font-bold" href="#">Hoodies</a>
+<a class="text-zinc-500 hover:text-white transition-colors font-['Space_Grotesk'] uppercase tracking-tighter font-bold" href="#">Pants</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-white" data-icon="shopping_bag">shopping_bag</span>
+</button>
+<button class="md:hidden">
+<span class="material-symbols-outlined text-white" data-icon="menu">menu</span>
+</button>
+</div>
+</nav>
+<main class="flex-grow pt-24 pb-20">
+<!-- Breadcrumbs -->
+<div class="px-8 py-6">
+<nav class="flex text-on-secondary-fixed-variant font-label text-sm uppercase tracking-widest gap-2">
+<a class="hover:text-primary transition-colors" href="#">Archive</a>
+<span>/</span>
+<a class="hover:text-primary transition-colors" href="#">Outerwear</a>
+<span>/</span>
+<span class="text-primary font-bold">Raw Edge Hoodie</span>
+</nav>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-0 min-h-[calc(100vh-160px)]">
+<!-- Left: High-End Product Gallery (Asymmetric Layout) -->
+<div class="lg:col-span-7 px-4 md:px-8 space-y-8 pb-12">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Hero Image -->
+<div class="md:col-span-2 aspect-[4/5] bg-surface-container-lowest overflow-hidden">
+<img alt="Front view of raw edge hoodie" class="w-full h-full object-cover grayscale brightness-90 hover:grayscale-0 transition-all duration-700" data-alt="Close-up architectural shot of a heavy black oversized hoodie on a minimalist concrete background with dramatic shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_TNasqdQPJJ5Izl5Bt7Hgknw7vEGfeTeK7wcSPm_5Q1Dc68dF1mA9H3x-HlqqKiUyEBfwN7fT-i9UjIhyZcciNhcSuffqzKCowW3jyFcjmehEzCVzmkm3uT87MvckGL6RtKsITcpWjrRRdpZZHYB8EXH2EnA9D4dfjK2vKkXkr1pteH3rMGChiIa6dOzacA7YwU8GstgBI-PiK5UzRU6RW78atSvU8Bqwzo4tr04-oI2WhdSxeyq0O3CsB7H-r6WMtwvhv0PvRQQ"/>
+</div>
+<!-- Detail 1 -->
+<div class="aspect-square bg-surface-container-low overflow-hidden">
+<img alt="Texture detail" class="w-full h-full object-cover grayscale brightness-90 hover:grayscale-0 transition-all duration-700" data-alt="Macro detail of high-quality heavy cotton weave and raw edge stitching on a dark grey streetwear garment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6Exdh4BUcPRVSEW8aPy6z8PWgawdWbjTpqfwIL2xALAZdj7sDqf3vdPlaFzQYcOiiHR2cG4yc2I7CyueL7yKADR6_C2eiAnCus46G34XZvzq0ouKdWgzXKbI2-7c5sCiudYR6dwC0ivMHddaHoaUPdya61F4p5zeB60EyBHE_2Vizp6N2VEALvYdPLrYzBuwKNjz0uep0-Cl6nvtd_k3Jes65doI26d8FvBIhEmmbnqGo5tNkoqUDvf-UbGwGqSlVX9MRU9wqOAA"/>
+</div>
+<!-- Detail 2 -->
+<div class="aspect-square bg-surface-container-low overflow-hidden">
+<img alt="Fit detail" class="w-full h-full object-cover grayscale brightness-90 hover:grayscale-0 transition-all duration-700" data-alt="Aesthetic back view of an oversized hoodie silhouette with architectural drape and heavy drop shoulders" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUr8Gylp1q5JBaMWzCm-RiIo6wFjRsfoFW8DMKvTj7beQNOvj2o5lbFRtANHC7t1sIalWkm59EokCcRxj9G_Y363pXFMSwKw9O1X4Sg-5lbDCPmy-piTQbMOG7oZYdoIq4SFpjV2W8gGhdvQN-kfYxxfthAQecl0NrdRDrtrUaNu3--9lyIuYL2q9WPTcCDxPkygnbZnI-Ds-t13GvWPLR4vJwCOEuhBD0q1IIRWKSVbFTo6vszbHD__D4t1YuWSlQpzRAPuZYXno"/>
+</div>
+</div>
+</div>
+<!-- Right: Product Info & Actions (Sticky) -->
+<div class="lg:col-span-5 px-8 lg:px-12 lg:sticky lg:top-32 h-fit pb-20">
+<header class="mb-12">
+<h1 class="font-headline text-5xl md:text-7xl font-black uppercase tracking-tighter leading-[0.9] mb-4 text-white">
+                        RAW EDGE<br/>DECONSTRUCTED
+                    </h1>
+<div class="flex items-baseline justify-between border-b border-outline-variant/20 pb-6">
+<span class="font-body text-2xl font-light text-zinc-400">ARCHIVE_012</span>
+<span class="font-headline text-3xl font-bold text-white">$245.00</span>
+</div>
+</header>
+<!-- Product Description -->
+<div class="mb-12 max-w-md">
+<p class="font-body text-on-surface-variant leading-relaxed mb-6">
+                        Custom-milled 500GSM heavy loopback cotton. Featuring deconstructed raw seams, dropped shoulder silhouette, and architectural hood construction. Hand-finished in our London studio.
+                    </p>
+<ul class="text-xs uppercase tracking-[0.2em] space-y-2 font-medium text-zinc-500">
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full"></span> 100% Organic Heavyweight Cotton</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full"></span> Garment Dyed &amp; Pre-shrunk</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full"></span> Limited Edition: 1 of 100</li>
+</ul>
+</div>
+<!-- Size Selector -->
+<div class="mb-10">
+<div class="flex justify-between items-end mb-4">
+<span class="font-label text-xs uppercase tracking-widest font-bold text-white">Select Size</span>
+<button class="text-[10px] uppercase tracking-widest text-zinc-500 underline underline-offset-4 hover:text-white transition-colors">Size Guide</button>
+</div>
+<div class="grid grid-cols-4 gap-2">
+<button class="py-4 border border-outline-variant text-zinc-500 hover:border-white hover:text-white transition-all font-headline font-bold">S</button>
+<button class="py-4 border border-white text-white bg-surface-container-highest font-headline font-bold">M</button>
+<button class="py-4 border border-outline-variant text-zinc-500 hover:border-white hover:text-white transition-all font-headline font-bold">L</button>
+<button class="py-4 border border-outline-variant text-zinc-500 hover:border-white hover:text-white transition-all font-headline font-bold">XL</button>
+</div>
+</div>
+<!-- Quantity & Add to Bag -->
+<div class="flex flex-col gap-4">
+<div class="flex h-16 border border-outline-variant/30">
+<button class="w-16 flex items-center justify-center hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="remove">remove</span>
+</button>
+<div class="flex-grow flex items-center justify-center font-headline font-bold text-xl">01</div>
+<button class="w-16 flex items-center justify-center hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+</button>
+</div>
+<button class="h-16 bg-white text-black font-headline font-black text-lg uppercase tracking-widest hover:bg-zinc-200 transition-colors flex items-center justify-center gap-3">
+                        ADD TO BAG
+                        <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<button class="h-16 border border-outline-variant/30 text-white font-headline font-bold text-sm uppercase tracking-widest hover:bg-surface-container-low transition-colors">
+                        ADD TO WISHLIST
+                    </button>
+</div>
+<!-- Details Accordion (Minimalist) -->
+<div class="mt-12 border-t border-outline-variant/20">
+<details class="group py-6 border-b border-outline-variant/20 cursor-pointer">
+<summary class="flex justify-between items-center list-none font-headline uppercase font-bold text-sm tracking-widest">
+                            SHIPPING &amp; RETURNS
+                            <span class="material-symbols-outlined group-open:rotate-180 transition-transform" data-icon="expand_more">expand_more</span>
+</summary>
+<p class="mt-4 text-sm text-zinc-500 leading-relaxed font-body">
+                            Complimentary worldwide shipping on orders over $500. Returns accepted within 14 days of delivery.
+                        </p>
+</details>
+<details class="group py-6 border-b border-outline-variant/20 cursor-pointer">
+<summary class="flex justify-between items-center list-none font-headline uppercase font-bold text-sm tracking-widest">
+                            CARE INSTRUCTIONS
+                            <span class="material-symbols-outlined group-open:rotate-180 transition-transform" data-icon="expand_more">expand_more</span>
+</summary>
+<p class="mt-4 text-sm text-zinc-500 leading-relaxed font-body">
+                            Cold machine wash inside out. Do not tumble dry. Iron on reverse. Handled with precision.
+                        </p>
+</details>
+</div>
+</div>
+</div>
+<!-- Related Products Section -->
+<section class="mt-32 px-8 border-t border-outline-variant/10 pt-20">
+<div class="flex justify-between items-end mb-12">
+<h2 class="font-headline text-4xl font-black uppercase tracking-tighter text-white">COMPLETE THE EXHIBIT</h2>
+<a class="text-xs font-bold uppercase tracking-widest border-b border-primary pb-1 hover:opacity-70 transition-opacity" href="#">View All</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Related Item 1 -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] bg-surface-container-low overflow-hidden mb-4">
+<img alt="Brutalist Tee" class="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105" data-alt="Minimalist street photography of a white boxy t-shirt on a dark textured background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDu4ry-2TS03vTKGXq8oMJG9v1gr2F0oGqBH67itXEirMnGXn6BL8DBi08uItIwnUCf8QAVkpIAPZeJJ4fUZT0kCTsJp6SLj0eCSWZkmsJuRG-m64UGzmVWuxqr7KQ2rhKJdngp4Qg3PmDCNhrotOi1FHZbwC2PvoPBMiViMqnn4OlxQAB-xWEMcA0qJew_6BHNsXY1PWdQqBHQ99NQbcNhfq2XT-qf4tKgEQd-R67e6H0zQ4nyQnTNuHdrANDuABtUru_njDL5qAU"/>
+</div>
+<div class="space-y-1">
+<h3 class="font-headline font-bold text-sm uppercase tracking-tight group-hover:underline">Boxy Core Tee</h3>
+<p class="font-body text-sm text-zinc-500">$85.00</p>
+</div>
+</div>
+<!-- Related Item 2 -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] bg-surface-container-low overflow-hidden mb-4">
+<img alt="Cargo Pants" class="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105" data-alt="High-fashion shot of wide-leg dark grey cargo pants with oversized pockets on a grey studio backdrop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmE4lGWnl8gbMP47uKClPY68t305EtFtlojs60ygXzpyumdDzKyrtcs2imqKuOlDREVYAzTS0ZAR4IoBGW_g-XGlewrP1w2BSFQkICTfmw_DI799j_7oCD1b9jGDKHk6ahv5MVLK2nkeothbHKbFEdghMsmMdfj-0DmUKlNIbSiAjgY_G_iEYt7NgZhLqXGKqoqudc4GICs0CEJS8-VBT6ZR7OmROWt6vsdPn4P6WGL5G4VaJpKnn6Y6p39rqhO85oI1MjPzGClB4"/>
+</div>
+<div class="space-y-1">
+<h3 class="font-headline font-bold text-sm uppercase tracking-tight group-hover:underline">Architectural Cargo</h3>
+<p class="font-body text-sm text-zinc-500">$320.00</p>
+</div>
+</div>
+<!-- Related Item 3 -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] bg-surface-container-low overflow-hidden mb-4">
+<img alt="Luxury Sneaker" class="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105" data-alt="Close up of a sculptural high-end designer sneaker in black and white leather with chunky soles" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNIos63me93Cbbre5agFtgpBCGrmIOyOaKQ5w1JzTT9I6eLUg6PTXyQU-mRUsP7YaamCGkIf-EOFPY6CLYG5u8D4e6H8H-w5X-pWhgD3HzUj1jjGb6T14AdzlwpW9T7CWGKzDPBM4Pb-r7u35wjLuNGdv23bVOmZ7FSVkNbHIPcaojJ35bZJnQpDLgaBTNpukk2G6VBPQIURY9P3Fl_nf8uWi93GIbtomUr8oUnf5lnbyR_J6HdGKjdg0mz0ok-mTvKUoIHuArbTo"/>
+</div>
+<div class="space-y-1">
+<h3 class="font-headline font-bold text-sm uppercase tracking-tight group-hover:underline">Gallery Runner 01</h3>
+<p class="font-body text-sm text-zinc-500">$450.00</p>
+</div>
+</div>
+<!-- Related Item 4 -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] bg-surface-container-low overflow-hidden mb-4">
+<img alt="Leather Jacket" class="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105" data-alt="Luxury black leather biker jacket detail with silver hardware against a dark urban background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATlCQipt6UV8F-lr0MshT-QW2-SOkYqIFj4H_DafRwI_fQY0cE_4FhKWfkgVac4npzREY_hA5jEjPF6FiQtS1ZZrBzuHJEDK8y1_2UCOfbJ6ntZ4U86DZxki8XGSSQTBwqqjc_zGrhJzQf-9gqX-t93VhcfxwAso6RdzwSF1l-Qgq8UJs3mXR8nvnHVDGAlTkgpldT0024deiJ_nJJgw2nDsC8lwIR71trkMo7a3HLScENJfimV9SxXgsykALGZHWjxMDOAu5YQKg"/>
+</div>
+<div class="space-y-1">
+<h3 class="font-headline font-bold text-sm uppercase tracking-tight group-hover:underline">Deconstructed Biker</h3>
+<p class="font-body text-sm text-zinc-500">$1,200.00</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Navigation Shell -->
+<footer class="bg-[#131313] w-full rounded-none flex flex-col md:flex-row justify-between items-start px-8 py-16 mt-auto border-t border-zinc-800">
+<div class="mb-10 md:mb-0">
+<div class="text-lg font-black text-white font-['Inter'] tracking-widest uppercase mb-4">BRUTALIST GALLERY</div>
+<p class="text-zinc-500 text-xs max-w-xs leading-loose font-['Inter'] tracking-widest uppercase">
+                CURATING THE RAW AND THE REFINED SINCE 2024. HIGH FASHION FOR THE MODERN VANDAL.
+            </p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-12 w-full md:w-auto">
+<div class="flex flex-col gap-4">
+<span class="text-white text-sm font-bold tracking-widest uppercase font-['Inter']">Instagram</span>
+<span class="text-white text-sm font-bold tracking-widest uppercase font-['Inter']">Twitter</span>
+</div>
+<div class="flex flex-col gap-4">
+<span class="text-white text-sm font-bold tracking-widest uppercase font-['Inter']">Newsletter</span>
+<span class="text-white text-sm font-bold tracking-widest uppercase font-['Inter']">Terms</span>
+</div>
+</div>
+<div class="mt-16 md:mt-0 md:text-right">
+<div class="text-zinc-500 text-[10px] tracking-widest uppercase font-['Inter']">
+                © 2024 BRUTALIST GALLERY. ALL RIGHTS RESERVED.
+            </div>
+</div>
+</footer>
+<!-- SideNavBar (Cart Drawer - Hidden by default) -->
+<aside class="fixed right-0 h-full w-full md:w-96 z-[60] rounded-none bg-[#131313] shadow-[0_0_60px_rgba(255,255,255,0.06)] flex flex-col p-10 translate-x-full transition-transform duration-300 ease-in-out invisible" id="cart-drawer">
+<div class="flex justify-between items-start mb-12">
+<div>
+<h2 class="text-xl font-bold text-white font-['Space_Grotesk']">YOUR GALLERY</h2>
+<p class="text-[10px] tracking-widest text-zinc-500 uppercase mt-1">CURATED SELECTIONS</p>
+</div>
+<button class="text-white">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</div>
+<div class="flex-grow overflow-y-auto hide-scrollbar space-y-8">
+<!-- Mini Cart Item -->
+<div class="flex gap-4 group">
+<div class="w-20 aspect-square bg-surface-container-low flex-shrink-0">
+<img alt="Hoodie thumbnail" class="w-full h-full object-cover grayscale" data-alt="Macro product photo of a black hoodie texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACoR6xW706KSxFrJENetWzxN-VVLyujjcoyhdK_iZ2org0DwK6q25-MJwCXbOGqlbSdQmSNnyb_i_c5VNMlh5sAdkaIFwyMJ4l4GoM7hY9MXhLr3nEyZy6ziBiBhNdGqz0Dkxy2FE2_WjMrJkTX-1kMTAcbkg7BihxWvUIYhsyO0HDGcWEWyoQyb61mBUGRzjVC5U6OF8d-sW3PqSUDvMQIPOjryxOeuRwg5U5ZKhLc_XpXJsSqKr39O-MoDAnR8KObMyU-FsDnSw"/>
+</div>
+<div class="flex-grow">
+<h4 class="text-xs font-bold text-white uppercase tracking-wider">Raw Edge Hoodie</h4>
+<p class="text-[10px] text-zinc-500 uppercase mt-1">SIZE: M | QTY: 1</p>
+<p class="text-xs font-bold text-white mt-2">$245.00</p>
+</div>
+</div>
+</div>
+<div class="mt-auto border-t border-outline-variant/20 pt-8">
+<div class="flex justify-between items-center mb-6">
+<span class="text-zinc-500 uppercase tracking-widest text-xs">Total</span>
+<span class="text-white font-bold text-xl font-headline">$245.00</span>
+</div>
+<button class="w-full py-5 bg-white text-black font-headline font-black uppercase tracking-widest text-sm hover:bg-zinc-200 transition-colors">
+                CHECKOUT NOW
+            </button>
+</div>
+</aside>
+</body></html>

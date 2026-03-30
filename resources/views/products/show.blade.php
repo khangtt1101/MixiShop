@@ -79,41 +79,33 @@
                     </div>
                 </div>
 
-                <form class="mt-8">
+                <form class="mt-8" action="{{ route('cart.add') }}" method="POST">
+                    @csrf
                     @if($product->variants->isNotEmpty())
-                    <!-- Colors -->
                     <div class="mb-6">
-                        <h3 class="text-sm text-gray-900 font-bold uppercase tracking-wider">Color</h3>
-                        <div class="mt-4 flex items-center space-x-3">
-                            @foreach($product->variants->unique('color') as $variant)
-                                @if($variant->color)
-                                    <label class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none ring-gray-400">
-                                        <input type="radio" name="color-choice" value="{{ $variant->color }}" class="sr-only" aria-labelledby="color-choice-0-label">
-                                        <span class="h-8 w-8 rounded-full border border-black border-opacity-10 shadow-sm" style="background-color: {{ strtolower($variant->color) }};"></span>
-                                    </label>
-                                @endif
+                        <label for="variant_id" class="block text-sm text-gray-900 font-bold uppercase tracking-wider mb-2">Select Variant</label>
+                        <select name="variant_id" id="variant_id" required class="mt-1 block w-full pl-3 pr-10 py-3 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md shadow-sm border bg-white">
+                            <option value="" disabled selected>Choose Size & Color</option>
+                            @foreach($product->variants as $variant)
+                                <option value="{{ $variant->id }}" {{ $variant->stock_quantity <= 0 ? 'disabled' : '' }}>
+                                    {{ $variant->size }} @if($variant->color) - {{ $variant->color }} @endif 
+                                    @if($variant->stock_quantity <= 0) (OUT OF STOCK) @endif
+                                </option>
                             @endforeach
-                        </div>
+                        </select>
+                    </div>
+                    @endif
+
+                    <div class="mb-6">
+                        <label for="quantity" class="block text-sm text-gray-900 font-bold uppercase tracking-wider mb-2">Quantity</label>
+                        <input type="number" name="quantity" id="quantity" value="1" min="1" class="mt-1 block w-24 pl-3 pr-3 py-3 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md shadow-sm border bg-white text-center">
                     </div>
 
-                    <!-- Sizes -->
-                    <div class="mt-10">
-                        <div class="flex items-center justify-between">
-                            <h3 class="text-sm text-gray-900 font-bold uppercase tracking-wider">Size</h3>
-                            <a href="#" class="text-sm font-medium text-indigo-600 hover:text-indigo-500 transition-colors">Size guide</a>
-                        </div>
-
-                        <div class="grid grid-cols-4 gap-4 sm:grid-cols-6 mt-4">
-                            @foreach($product->variants->unique('size') as $variant)
-                                @if($variant->size)
-                                    <label class="group relative flex items-center justify-center rounded-md border border-gray-200 bg-white px-4 py-3 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer transition-colors shadow-sm">
-                                        <input type="radio" name="size-choice" value="{{ $variant->size }}" class="sr-only">
-                                        <span id="size-choice-{{ $loop->index }}-label">{{ $variant->size }}</span>
-                                    </label>
-                                @endif
-                            @endforeach
-                        </div>
-                    </div>
+                    @if(session('error'))
+                        <div class="text-red-500 text-sm font-bold mt-2">{{ session('error') }}</div>
+                    @endif
+                    @if(session('success'))
+                        <div class="text-green-500 text-sm font-bold mt-2">{{ session('success') }}</div>
                     @endif
 
                     <div class="mt-10 flex gap-4">

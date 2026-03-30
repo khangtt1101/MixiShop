@@ -1,44 +1,96 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mixi Clothing - @yield('title', 'Premium E-Commerce')</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>@yield('title', 'Streetwear E-Commerce')</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+            font-size: 20px;
+        }
+        body {
+            background-color: #131313;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+    <script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "surface-tint": "#c6c6c7",
+                "inverse-primary": "#5d5f5f",
+                "surface-dim": "#131313",
+                "surface-variant": "#353535",
+                "surface-container-highest": "#353535",
+                "on-primary-fixed-variant": "#e2e2e2",
+                "on-primary-fixed": "#ffffff",
+                "surface-container-lowest": "#0e0e0e",
+                "primary-fixed-dim": "#454747",
+                "on-tertiary-fixed-variant": "#e3e2e2",
+                "inverse-on-surface": "#303030",
+                "background": "#131313",
+                "secondary": "#c6c6c6",
+                "primary": "#ffffff",
+                "inverse-surface": "#e2e2e2",
+                "on-secondary-container": "#e2e2e2",
+                "surface-container": "#1f1f1f",
+                "surface": "#131313",
+                "on-secondary-fixed": "#1a1c1c",
+                "outline-variant": "#474747",
+                "on-tertiary-container": "#000000",
+                "on-background": "#e2e2e2",
+                "primary-container": "#d4d4d4",
+                "on-primary-container": "#000000",
+                "primary-fixed": "#5d5f5f",
+                "outline": "#919191",
+                "on-error-container": "#ffdad6",
+                "surface-bright": "#393939",
+                "error": "#ffb4ab",
+                "on-tertiary-fixed": "#ffffff",
+                "surface-container-low": "#1b1b1b",
+                "tertiary-container": "#919090",
+                "on-primary": "#1a1c1c",
+                "tertiary": "#e3e2e2",
+                "secondary-fixed-dim": "#ababab",
+                "on-error": "#690005",
+                "tertiary-fixed-dim": "#464747",
+                "secondary-container": "#454747",
+                "surface-container-high": "#2a2a2a",
+                "on-surface": "#e2e2e2",
+                "on-secondary-fixed-variant": "#3a3c3c",
+                "error-container": "#93000a",
+                "on-tertiary": "#1b1c1c",
+                "tertiary-fixed": "#5e5e5e",
+                "on-secondary": "#1a1c1c",
+                "secondary-fixed": "#c6c6c6",
+                "on-surface-variant": "#c6c6c6"
+              },
+              fontFamily: {
+                "headline": ["Space Grotesk"],
+                "body": ["Inter"],
+                "label": ["Inter"]
+              },
+              borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+            },
+          },
+        }
+    </script>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans antialiased flex flex-col min-h-screen">
-    <nav class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <a href="{{ route('home') }}" class="text-2xl font-black text-indigo-600 tracking-wider">MIXI</a>
-                </div>
-                <div class="flex items-center space-x-8">
-                    <a href="{{ route('home') }}" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-200">Home</a>
-                    <a href="{{ route('products.index') }}" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-200">Shop</a>
-                    <a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-200 relative">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                        <span class="absolute -top-2 -right-2 bg-indigo-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <main class="flex-grow">
-        @yield('content')
-    </main>
-
-    <footer class="bg-gray-900 text-white mt-12 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center text-center py-6">
-                <div class="mb-4 md:mb-0">
-                    <span class="text-2xl font-black text-white tracking-wider">MIXI</span>
-                    <p class="text-gray-400 text-sm mt-2">Premium clothing for everyone.</p>
-                </div>
-                <p class="text-gray-400 text-sm">&copy; {{ date('Y') }} Mixi Clothing. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+<body class="bg-background text-on-background selection:bg-primary selection:text-on-primary min-h-screen flex flex-col pt-20">
+    <x-navbar />
+    
+    @yield('content')
+    
+    <x-footer />
 </body>
 </html>
