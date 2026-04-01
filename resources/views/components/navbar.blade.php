@@ -8,6 +8,19 @@
         </div>
     </div>
     <div class="flex items-center gap-6">
+        @auth
+            @if(auth()->user()->is_admin)
+                <a href="{{ route('admin.dashboard') }}" class="text-zinc-400 hover:text-white font-headline text-sm font-bold uppercase tracking-wider transition-colors">Admin</a>
+            @endif
+            <span class="text-zinc-500 font-headline text-sm font-bold tracking-wider">{{ auth()->user()->name }}</span>
+            <form method="POST" action="{{ route('logout') }}" class="inline">
+                @csrf
+                <button type="submit" class="text-zinc-400 hover:text-white font-headline text-sm font-bold uppercase tracking-wider transition-colors">Logout</button>
+            </form>
+        @else
+            <a href="{{ route('login') }}" class="text-zinc-400 hover:text-white font-headline text-sm font-bold uppercase tracking-wider transition-colors">Login</a>
+            <a href="{{ route('register') }}" class="text-zinc-400 hover:text-white font-headline text-sm font-bold uppercase tracking-wider transition-colors">Register</a>
+        @endauth
         <a href="{{ route('cart.index') }}" class="relative text-white hover:opacity-80 transition-opacity flex items-center justify-center">
             <span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
             @php $cartCount = collect(session('cart'))->sum('quantity'); @endphp

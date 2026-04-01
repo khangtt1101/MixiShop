@@ -23,12 +23,32 @@ class OrderController extends Controller
     public function update(Request $request, Order $order)
     {
         $validated = $request->validate([
-            'status' => 'required|string|in:pending,processing,completed,cancelled',
+            'status' => 'required|string|in:' . implode(',', Order::getStatuses()),
         ]);
 
-        $order->update(['status' => $validated['status']]);
+        $newStatus = $validated['status'];
 
-        return redirect()->route('admin.orders.show', $order)
-            ->with('success', 'Order status updated successfully.');
+        if (!$order->canTransitionTo($newStatus)) {
+            $message = "Invalid status transition from '{$order->status}' to '{$newStatus}'.";
+            if ($request->wantsJson()) {
+                return response()->json([
+                    'success' => false,
+                    'message' => $message
+                ], 422);
+            }
+            return redirect()->back()->with('error', $message);
+        }
+
+        $order->update(['status' => $newStatus]);
+
+        if ($request->wantsJson()) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Order status updated successfully.',
+                'status' => $newStatus
+            ]);
+        }
+
+        return redirect()->back()->with('success', 'Order status updated successfully.');
     }
 }

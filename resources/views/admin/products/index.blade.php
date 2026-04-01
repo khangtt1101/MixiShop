@@ -56,7 +56,7 @@
                             <form action="{{ route('admin.products.destroy', $product) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this product?');">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="text-red-500 hover:text-red-700 bg-red-50 hover:bg-red-100 p-2 rounded transition"
+                                <button type="submit" class="p-2 rounded transition flex items-center justify-center {{ $product->variants_count > 0 ? 'text-gray-400 bg-gray-100 cursor-not-allowed' : 'text-red-500 hover:text-red-700 bg-red-50 hover:bg-red-100' }}"
                                     {{ $product->variants_count > 0 ? 'disabled title="Cannot delete product with variants"' : '' }}>
                                     <i class="fa-solid fa-trash"></i>
                                 </button>

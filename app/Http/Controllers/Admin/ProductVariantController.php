@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\ProductVariant;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class ProductVariantController extends Controller
 {
@@ -23,9 +24,19 @@ class ProductVariantController extends Controller
     public function store(Request $request, Product $product)
     {
         $validated = $request->validate([
-            'size' => 'required|string|max:50',
+            'size' => [
+                'required',
+                'string',
+                'max:50',
+                Rule::unique('product_variants')->where(function ($query) use ($product, $request) {
+                    return $query->where('product_id', $product->id)
+                                 ->where('color', $request->color);
+                })
+            ],
             'color' => 'required|string|max:50',
             'stock_quantity' => 'required|integer|min:0',
+        ], [
+            'size.unique' => 'A variant with this size and color already exists for this product.'
         ]);
 
         $product->variants()->create($validated);
@@ -42,9 +53,19 @@ class ProductVariantController extends Controller
     public function update(Request $request, Product $product, ProductVariant $variant)
     {
         $validated = $request->validate([
-            'size' => 'required|string|max:50',
+            'size' => [
+                'required',
+                'string',
+                'max:50',
+                Rule::unique('product_variants')->where(function ($query) use ($product, $request) {
+                    return $query->where('product_id', $product->id)
+                                 ->where('color', $request->color);
+                })->ignore($variant->id)
+            ],
             'color' => 'required|string|max:50',
             'stock_quantity' => 'required|integer|min:0',
+        ], [
+            'size.unique' => 'A variant with this size and color already exists for this product.'
         ]);
 
         $variant->update($validated);

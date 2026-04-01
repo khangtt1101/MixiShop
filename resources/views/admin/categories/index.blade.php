@@ -51,7 +51,7 @@
                             <form action="{{ route('admin.categories.destroy', $category) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this category?');">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="text-red-500 hover:text-red-700 bg-red-50 hover:bg-red-100 p-2 rounded transition"
+                                <button type="submit" class="p-2 rounded transition flex items-center justify-center {{ $category->products_count > 0 ? 'text-gray-400 bg-gray-100 cursor-not-allowed' : 'text-red-500 hover:text-red-700 bg-red-50 hover:bg-red-100' }}"
                                     {{ $category->products_count > 0 ? 'disabled title="Cannot delete category with products"' : '' }}>
                                     <i class="fa-solid fa-trash"></i>
                                 </button>

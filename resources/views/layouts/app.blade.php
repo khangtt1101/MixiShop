@@ -89,6 +89,38 @@
 <body class="bg-background text-on-background selection:bg-primary selection:text-on-primary min-h-screen flex flex-col pt-20">
     <x-navbar />
     
+    @if(session('success'))
+        <div id="flash-message-success" class="fixed top-24 left-1/2 transform -translate-x-1/2 z-50 flex items-center gap-3 bg-surface-container-high text-on-surface px-6 py-4 border border-outline-variant shadow-xl" style="transition: opacity 0.5s ease-in-out;">
+            <span class="material-symbols-outlined text-green-400">check_circle</span>
+            <p class="font-medium font-body text-sm whitespace-nowrap">{{ session('success') }}</p>
+            <button onclick="document.getElementById('flash-message-success').style.opacity='0'; setTimeout(()=>document.getElementById('flash-message-success').remove(), 500)" class="ml-4 text-on-surface hover:text-white transition-colors flex items-center">
+                <span class="material-symbols-outlined text-[18px]">close</span>
+            </button>
+        </div>
+        <script>
+            setTimeout(() => {
+                const el = document.getElementById('flash-message-success');
+                if(el) { el.style.opacity = '0'; setTimeout(()=>el.remove(), 500); }
+            }, 6000);
+        </script>
+    @endif
+
+    @if(session('error'))
+        <div id="flash-message-error" class="fixed top-24 left-1/2 transform -translate-x-1/2 z-50 flex items-center gap-3 bg-error-container text-on-error-container px-6 py-4 border border-error shadow-xl" style="transition: opacity 0.5s ease-in-out;">
+            <span class="material-symbols-outlined">error</span>
+            <p class="font-medium font-body text-sm">{{ session('error') }}</p>
+            <button onclick="document.getElementById('flash-message-error').style.opacity='0'; setTimeout(()=>document.getElementById('flash-message-error').remove(), 500)" class="ml-4 hover:opacity-75 transition-opacity flex items-center">
+                <span class="material-symbols-outlined text-[18px]">close</span>
+            </button>
+        </div>
+        <script>
+            setTimeout(() => {
+                const el = document.getElementById('flash-message-error');
+                if(el) { el.style.opacity = '0'; setTimeout(()=>el.remove(), 500); }
+            }, 7000);
+        </script>
+    @endif
+    
     @yield('content')
     
     <x-footer />
